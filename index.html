@@ -5,9 +5,7 @@
   </font>
 </p>
 
-<p id="demo">
-  <font size="48">timer here...</font>
-</p>
+<p id="demo" style="font-size=:100px";></p>
 
 <script>
 // Set the date we're counting down to
@@ -30,8 +28,7 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   // document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  //document.getElementById("demo").innerHTML = hours + "h "
-  //+ minutes + "m " + seconds + "s ";
+  document.getElementById("demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text 
   if (distance < 0) {
