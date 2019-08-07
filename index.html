@@ -7,18 +7,29 @@
 
 <p id="demo"></p>
 
+<p id="title">
+    <font size="48">
+      Countdown Timer to Karolina's Holiday...
+    </font>
+  </p>
+
+<p id="realDeal"></p>
+
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Aug 7, 2019 16:30:00").getTime();
+var countDownDateK = new Date("Aug 9, 2019 16:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
+  var nowK = new Date().getTime();
 
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
+  var distanceK = countDownDateK - now;
 
   // Time calculations for days, hours, minutes and seconds
   // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -26,16 +37,30 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+  var daysK = Math.floor(distanceK / (1000 * 60 * 60 * 24));
+  var hoursK = Math.floor((distanceK % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesK = Math.floor((distanceK % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsK = Math.floor((distanceK % (1000 * 60)) / 1000);
+
   // Display the result in the element with id="demo"
   // document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   var output = document.getElementById("demo");
-  output.style.fontSize = "400px";
+  output.style.fontSize = "100px";
   output.innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+  var outputK = document.getElementById("realDeal");
+  outputK.style.fontSize = "100px";
+  outputK.innerHTML = daysK + "d " + hoursK + "h " + minutesK + "m " + secondsK + "s ";
 
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+
+  if (distanceK < 0) {
+    clearInterval(x);
+    document.getElementById("realDeal").innerHTML = "EXPIRED";
   }
 }, 1000);
 </script>
